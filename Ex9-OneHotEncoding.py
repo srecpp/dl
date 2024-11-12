@@ -10,7 +10,6 @@ samples = [
     'Gravity is the force that attracts objects toward the center of the Earth'
 ]
 
-# Tokenizing the words
 token_index = {}
 counter = 0
 for sample in samples:
@@ -21,19 +20,16 @@ for sample in samples:
 
 print("Token Index:", token_index)
 
-# Getting the list of unique words (keys of the token_index)
 data = list(token_index.keys())
 values = array(data)
 
 print("Values:", values)
 
-# Integer encoding using LabelEncoder
 label_encoder = LabelEncoder()
 integer_encoded = label_encoder.fit_transform(values)
 
 print("Integer Encoded:", integer_encoded)
 
-# One-hot encoding using OneHotEncoder
 onehot_encoder = OneHotEncoder(sparse_output=False)
 integer_encoded = integer_encoded.reshape(len(integer_encoded), 1)
 onehot_encoded = onehot_encoder.fit_transform(integer_encoded)
